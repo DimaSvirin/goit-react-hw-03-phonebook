@@ -12,7 +12,7 @@ export class App extends Component {
     filter: '',
   };
 
-  componentInstalled() {
+  componentDidMount() {
     const locStorageContacts = localStorage.getItem('contacts');
     this.setState({
       contacts: locStorageContacts
@@ -21,7 +21,7 @@ export class App extends Component {
     });
   }
 
-  componentUpdate(_, prevState) {
+  componentDidUpdate(_, prevState) {
     if (prevState.contacts !== this.state.contacts)
       localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
   }
